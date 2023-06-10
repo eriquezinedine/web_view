@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch development",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=env=dev"
+      ]
+    },
+    {
+      "name": "Launch staging",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=env=stg"
+      ]
+    },
+    {
+      "name": "Launch production",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=env=prod",
+        "--dart-define=devTools=false"
+      ]
+    }
+  ]
+}

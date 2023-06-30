@@ -4,37 +4,32 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:web_view/core/enum/enum.dart';
-import 'package:web_view/domain/data/alumn.dart';
-import 'package:web_view/domain/data/alumn_event.dart';
-import 'package:web_view/domain/data/circle.dart';
-import 'package:web_view/domain/data/cordenada.dart';
+import 'package:web_view/data/models/alumn.dart';
+import 'package:web_view/data/models/circle.dart';
+import 'package:web_view/data/models/cordenada.dart';
+import 'package:web_view/data/repositories/socket_repository.dart';
+import 'package:web_view/domain/repository/i_socket_repository.dart';
 import 'package:web_view/domain/response/alumn_response.dart';
-import 'package:web_view/src/socket/socket.dart';
 
 part 'socket_bloc.freezed.dart';
 part 'socket_event.dart';
 part 'socket_state.dart';
 
 class SocketBloc extends Bloc<SocketEvent, SocketState> {
-  SocketBloc({required Sockets sockets})
+  SocketBloc({required SocketsRepository sockets})
       : _sockets = sockets,
         super(const SocketState()) {
-    on<_ChangeStatus>(_onChangeStatus);
     on<_ChangeVisibility>(_onChangeVisibility);
     on<_ConectionAlumn>(_onConectionAlumn);
 
     on<_UpdateListAlumn>(_onUpdateListAlumn);
     on<_AddCirclePaint>(_onAddCirclePaint);
     on<_Call>(_onCall);
+    on<_Disconnect>(_onDisconnect);
   }
 
-  final Sockets _sockets;
+  final SocketsRepository _sockets;
   void init() {
-    _sockets.on('canal', (data) {
-      add(SocketEvent.changeStatus(data));
-      // return _socketStreamController.sink.add(data);
-    });
-
     _sockets.on('list_alumn', (data) {
       final decodedData = jsonDecode(data);
       final response = AlumnResponse.fromJson(decodedData);
@@ -65,18 +60,6 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     );
   }
 
-  Future<void> _onChangeStatus(
-    _ChangeStatus event,
-    Emitter<SocketState> emit,
-  ) async {
-    print('Data desde el evento ${event.data}');
-    emit(
-      state.copyWith(
-        data: event.data,
-      ),
-    );
-  }
-
   Future<void> _onChangeVisibility(
     _ChangeVisibility event,
     Emitter<SocketState> emit,
@@ -95,20 +78,31 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     _sockets.emit('connection_alumn', event.alumn.toJson());
   }
 
+  Future<void> _onDisconnect(
+    _Disconnect event,
+    Emitter<SocketState> emit,
+  ) async {
+    print("se esta desconecntado");
+    _sockets.emit(
+        'disconect_client', 'Estoy desconectandolo ${event.idAlumn} ');
+  }
+
   Future<void> _onCall(
     _Call event,
     Emitter<SocketState> emit,
   ) async {
-    final alumnEvent = AlumnEvent(
-      idAlumno: event.idAlumno,
-      event: event.eventHome.name,
-    );
-    _sockets.emit('event_home', alumnEvent.toJson());
+    if (event.eventHome == EventHome.removeLast) {
+      _sockets.emit('removeLast', event.idAlumno);
+    }
+    if (event.eventHome == EventHome.deleteAll) {
+      _sockets.emit('removeAll', event.idAlumno);
+    }
   }
 
   @override
   Future<void> close() {
-    // TODO: implement close
+    print("se esta desconecntado DESDE CLOSE");
+    _sockets.emit('disconect_client', 'Estoy desconectandolo DESDE FLUTTER ');
     return super.close();
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_view/core/palette.dart';
-import 'package:web_view/domain/data/alumn.dart';
-import 'package:web_view/domain/data/db_colores.dart';
+import 'package:web_view/data/models/alumn.dart';
+import 'package:web_view/data/models/db_colores.dart';
 
 class ChipCustom extends StatelessWidget {
   const ChipCustom({

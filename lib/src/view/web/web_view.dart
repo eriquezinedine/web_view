@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_view/core/enum/enum.dart';
-import 'package:web_view/domain/data/alumn.dart';
-import 'package:web_view/domain/data/db_colores.dart';
+import 'package:web_view/data/models/alumn.dart';
+import 'package:web_view/data/models/db_colores.dart';
 import 'package:web_view/src/socket/bloc/socket_bloc/socket_bloc.dart';
-import 'package:web_view/src/view/web/view/custom_painter_view.dart';
 import 'package:web_view/src/view/web/widget/chip_custom.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -30,33 +29,40 @@ class Web extends StatelessWidget {
   }
 }
 
-class _Body extends StatelessWidget {
+class _Body extends StatefulWidget {
   const _Body({
     Key? key,
     required this.alumno,
   }) : super(key: key);
 
   final Alumn alumno;
+
+  @override
+  State<_Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<_Body> {
+  @override
+  void dispose() {
+    context.read<SocketBloc>().add(SocketEvent.disconnect(widget.alumno.id));
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final selectColor = DbColores.coloresMap[alumno.idColor]!;
-
     return Scaffold(
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'z1',
             onPressed: () {
               context.read<SocketBloc>().add(
                     SocketEvent.onCall(
-                      idAlumno: alumno.id,
+                      idAlumno: widget.alumno.id,
                       eventHome: EventHome.removeLast,
                     ),
                   );
-              // if (lines.isEmpty) return;
-              // setState(() {
-              //   lines.removeLast();
-              // });
             },
             child: const Icon(Icons.subdirectory_arrow_left_sharp),
           ),
@@ -64,6 +70,7 @@ class _Body extends StatelessWidget {
             height: 16,
           ),
           FloatingActionButton(
+            heroTag: 'z2',
             onPressed: () {
               context
                   .read<SocketBloc>()
@@ -83,10 +90,11 @@ class _Body extends StatelessWidget {
             height: 16,
           ),
           FloatingActionButton(
+            heroTag: 'z3',
             onPressed: () {
               context.read<SocketBloc>().add(
                     SocketEvent.onCall(
-                      idAlumno: alumno.id,
+                      idAlumno: widget.alumno.id,
                       eventHome: EventHome.deleteAll,
                     ),
                   );
@@ -122,7 +130,7 @@ class _Body extends StatelessWidget {
                       onTapDown: (TapDownDetails details) {
                         context.read<SocketBloc>().add(
                               SocketEvent.addCirclePaint(
-                                alumno.id,
+                                widget.alumno.id,
                                 details.localPosition,
                               ),
                             );
@@ -131,20 +139,29 @@ class _Body extends StatelessWidget {
                         buildWhen: (p, c) => p.alumns != c.alumns,
                         builder: (context, state) {
                           return Container(
-                              color: Colors.black26.withOpacity(.3),
-                              width: MediaQuery.of(context).size.width * .95,
-                              height: MediaQuery.of(context).size.height * .95,
-                              child: Stack(
-                                children: state.alumns
-                                    .map(
-                                      (e) => CustomPainterView(
-                                        drawColor: DbColores
-                                            .coloresMap[e.idColor]!.color,
-                                        idAlumno: alumno.id,
+                            color: Colors.black26.withOpacity(.3),
+                            width: MediaQuery.of(context).size.width * .95,
+                            height: MediaQuery.of(context).size.height * .95,
+                            child: Stack(
+                              fit: StackFit.expand,
+                              children: [
+                                for (var alumno in state.alumns)
+                                  ...alumno.offsets.map((offset) {
+                                    return Positioned(
+                                      left: offset.dx,
+                                      top: offset.dy,
+                                      child: CircleAvatar(
+                                        radius: 10,
+                                        backgroundColor: DbColores
+                                                .coloresMap[alumno.idColor]
+                                                ?.color ??
+                                            Colors.black,
                                       ),
-                                    )
-                                    .toList(),
-                              ));
+                                    );
+                                  }),
+                              ],
+                            ),
+                          );
                         },
                       ),
                     ),
@@ -159,8 +176,8 @@ class _Body extends StatelessWidget {
                         return SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: Wrap(
-                            spacing: 8.0, // Espacio horizontal entre los hijos
-                            runSpacing: 8.0, // Espacio vertical entre las filas
+                            spacing: 8.0,
+                            runSpacing: 8.0,
                             children: List.generate(
                               state.length,
                               (index) => ChipCustom(

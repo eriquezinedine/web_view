@@ -11,6 +11,10 @@ _$_Alumn _$$_AlumnFromJson(Map<String, dynamic> json) => _$_Alumn(
       nombre: json['nombre'] as String,
       idColor: json['idColor'] as String,
       canalConection: json['canalConection'] as String,
+      offsets: (json['offsets'] as List<dynamic>?)
+              ?.map((e) => Cordenada.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_AlumnToJson(_$_Alumn instance) => <String, dynamic>{
@@ -18,4 +22,5 @@ Map<String, dynamic> _$$_AlumnToJson(_$_Alumn instance) => <String, dynamic>{
       'nombre': instance.nombre,
       'idColor': instance.idColor,
       'canalConection': instance.canalConection,
+      'offsets': instance.offsets.map((e) => e.toJson()).toList(),
     };

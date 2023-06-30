@@ -2,10 +2,6 @@ part of 'socket_bloc.dart';
 
 @freezed
 class SocketEvent with _$SocketEvent {
-  ///** TEST /////////////////////////////////////////////////////*/
-  const factory SocketEvent.changeStatus(dynamic data) = _ChangeStatus;
-
-  ///** /////////////////////////////////////////////////////*/
   const factory SocketEvent.updateListAlumn(List<Alumn> alumn) =
       _UpdateListAlumn;
   const factory SocketEvent.changeVisibility() = _ChangeVisibility;
@@ -14,4 +10,6 @@ class SocketEvent with _$SocketEvent {
       _AddCirclePaint;
   const factory SocketEvent.onCall(
       {required String idAlumno, required EventHome eventHome}) = _Call;
+
+  const factory SocketEvent.disconnect(String idAlumn) = _Disconnect;
 }

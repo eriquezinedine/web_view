@@ -18,63 +18,63 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SocketEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
     required TResult Function(List<Alumn> alumn) updateListAlumn,
     required TResult Function() changeVisibility,
     required TResult Function(Alumn alumn) conectionAlumn,
     required TResult Function(String idAlumno, Offset position) addCirclePaint,
     required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
     TResult? Function(List<Alumn> alumn)? updateListAlumn,
     TResult? Function()? changeVisibility,
     TResult? Function(Alumn alumn)? conectionAlumn,
     TResult? Function(String idAlumno, Offset position)? addCirclePaint,
     TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
     TResult Function(List<Alumn> alumn)? updateListAlumn,
     TResult Function()? changeVisibility,
     TResult Function(Alumn alumn)? conectionAlumn,
     TResult Function(String idAlumno, Offset position)? addCirclePaint,
     TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
     required TResult Function(_UpdateListAlumn value) updateListAlumn,
     required TResult Function(_ChangeVisibility value) changeVisibility,
     required TResult Function(_ConectionAlumn value) conectionAlumn,
     required TResult Function(_AddCirclePaint value) addCirclePaint,
     required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
     TResult? Function(_UpdateListAlumn value)? updateListAlumn,
     TResult? Function(_ChangeVisibility value)? changeVisibility,
     TResult? Function(_ConectionAlumn value)? conectionAlumn,
     TResult? Function(_AddCirclePaint value)? addCirclePaint,
     TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
     TResult Function(_UpdateListAlumn value)? updateListAlumn,
     TResult Function(_ChangeVisibility value)? changeVisibility,
     TResult Function(_ConectionAlumn value)? conectionAlumn,
     TResult Function(_AddCirclePaint value)? addCirclePaint,
     TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -96,164 +96,6 @@ class _$SocketEventCopyWithImpl<$Res, $Val extends SocketEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_ChangeStatusCopyWith<$Res> {
-  factory _$$_ChangeStatusCopyWith(
-          _$_ChangeStatus value, $Res Function(_$_ChangeStatus) then) =
-      __$$_ChangeStatusCopyWithImpl<$Res>;
-  @useResult
-  $Res call({dynamic data});
-}
-
-/// @nodoc
-class __$$_ChangeStatusCopyWithImpl<$Res>
-    extends _$SocketEventCopyWithImpl<$Res, _$_ChangeStatus>
-    implements _$$_ChangeStatusCopyWith<$Res> {
-  __$$_ChangeStatusCopyWithImpl(
-      _$_ChangeStatus _value, $Res Function(_$_ChangeStatus) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$_ChangeStatus(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ChangeStatus implements _ChangeStatus {
-  const _$_ChangeStatus(this.data);
-
-  @override
-  final dynamic data;
-
-  @override
-  String toString() {
-    return 'SocketEvent.changeStatus(data: $data)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ChangeStatus &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ChangeStatusCopyWith<_$_ChangeStatus> get copyWith =>
-      __$$_ChangeStatusCopyWithImpl<_$_ChangeStatus>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
-    required TResult Function(List<Alumn> alumn) updateListAlumn,
-    required TResult Function() changeVisibility,
-    required TResult Function(Alumn alumn) conectionAlumn,
-    required TResult Function(String idAlumno, Offset position) addCirclePaint,
-    required TResult Function(String idAlumno, EventHome eventHome) onCall,
-  }) {
-    return changeStatus(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
-    TResult? Function(List<Alumn> alumn)? updateListAlumn,
-    TResult? Function()? changeVisibility,
-    TResult? Function(Alumn alumn)? conectionAlumn,
-    TResult? Function(String idAlumno, Offset position)? addCirclePaint,
-    TResult? Function(String idAlumno, EventHome eventHome)? onCall,
-  }) {
-    return changeStatus?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
-    TResult Function(List<Alumn> alumn)? updateListAlumn,
-    TResult Function()? changeVisibility,
-    TResult Function(Alumn alumn)? conectionAlumn,
-    TResult Function(String idAlumno, Offset position)? addCirclePaint,
-    TResult Function(String idAlumno, EventHome eventHome)? onCall,
-    required TResult orElse(),
-  }) {
-    if (changeStatus != null) {
-      return changeStatus(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
-    required TResult Function(_UpdateListAlumn value) updateListAlumn,
-    required TResult Function(_ChangeVisibility value) changeVisibility,
-    required TResult Function(_ConectionAlumn value) conectionAlumn,
-    required TResult Function(_AddCirclePaint value) addCirclePaint,
-    required TResult Function(_Call value) onCall,
-  }) {
-    return changeStatus(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
-    TResult? Function(_UpdateListAlumn value)? updateListAlumn,
-    TResult? Function(_ChangeVisibility value)? changeVisibility,
-    TResult? Function(_ConectionAlumn value)? conectionAlumn,
-    TResult? Function(_AddCirclePaint value)? addCirclePaint,
-    TResult? Function(_Call value)? onCall,
-  }) {
-    return changeStatus?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
-    TResult Function(_UpdateListAlumn value)? updateListAlumn,
-    TResult Function(_ChangeVisibility value)? changeVisibility,
-    TResult Function(_ConectionAlumn value)? conectionAlumn,
-    TResult Function(_AddCirclePaint value)? addCirclePaint,
-    TResult Function(_Call value)? onCall,
-    required TResult orElse(),
-  }) {
-    if (changeStatus != null) {
-      return changeStatus(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeStatus implements SocketEvent {
-  const factory _ChangeStatus(final dynamic data) = _$_ChangeStatus;
-
-  dynamic get data;
-  @JsonKey(ignore: true)
-  _$$_ChangeStatusCopyWith<_$_ChangeStatus> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -326,12 +168,12 @@ class _$_UpdateListAlumn implements _UpdateListAlumn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
     required TResult Function(List<Alumn> alumn) updateListAlumn,
     required TResult Function() changeVisibility,
     required TResult Function(Alumn alumn) conectionAlumn,
     required TResult Function(String idAlumno, Offset position) addCirclePaint,
     required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
   }) {
     return updateListAlumn(alumn);
   }
@@ -339,12 +181,12 @@ class _$_UpdateListAlumn implements _UpdateListAlumn {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
     TResult? Function(List<Alumn> alumn)? updateListAlumn,
     TResult? Function()? changeVisibility,
     TResult? Function(Alumn alumn)? conectionAlumn,
     TResult? Function(String idAlumno, Offset position)? addCirclePaint,
     TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
   }) {
     return updateListAlumn?.call(alumn);
   }
@@ -352,12 +194,12 @@ class _$_UpdateListAlumn implements _UpdateListAlumn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
     TResult Function(List<Alumn> alumn)? updateListAlumn,
     TResult Function()? changeVisibility,
     TResult Function(Alumn alumn)? conectionAlumn,
     TResult Function(String idAlumno, Offset position)? addCirclePaint,
     TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
     required TResult orElse(),
   }) {
     if (updateListAlumn != null) {
@@ -369,12 +211,12 @@ class _$_UpdateListAlumn implements _UpdateListAlumn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
     required TResult Function(_UpdateListAlumn value) updateListAlumn,
     required TResult Function(_ChangeVisibility value) changeVisibility,
     required TResult Function(_ConectionAlumn value) conectionAlumn,
     required TResult Function(_AddCirclePaint value) addCirclePaint,
     required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
   }) {
     return updateListAlumn(this);
   }
@@ -382,12 +224,12 @@ class _$_UpdateListAlumn implements _UpdateListAlumn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
     TResult? Function(_UpdateListAlumn value)? updateListAlumn,
     TResult? Function(_ChangeVisibility value)? changeVisibility,
     TResult? Function(_ConectionAlumn value)? conectionAlumn,
     TResult? Function(_AddCirclePaint value)? addCirclePaint,
     TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
   }) {
     return updateListAlumn?.call(this);
   }
@@ -395,12 +237,12 @@ class _$_UpdateListAlumn implements _UpdateListAlumn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
     TResult Function(_UpdateListAlumn value)? updateListAlumn,
     TResult Function(_ChangeVisibility value)? changeVisibility,
     TResult Function(_ConectionAlumn value)? conectionAlumn,
     TResult Function(_AddCirclePaint value)? addCirclePaint,
     TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (updateListAlumn != null) {
@@ -457,12 +299,12 @@ class _$_ChangeVisibility implements _ChangeVisibility {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
     required TResult Function(List<Alumn> alumn) updateListAlumn,
     required TResult Function() changeVisibility,
     required TResult Function(Alumn alumn) conectionAlumn,
     required TResult Function(String idAlumno, Offset position) addCirclePaint,
     required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
   }) {
     return changeVisibility();
   }
@@ -470,12 +312,12 @@ class _$_ChangeVisibility implements _ChangeVisibility {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
     TResult? Function(List<Alumn> alumn)? updateListAlumn,
     TResult? Function()? changeVisibility,
     TResult? Function(Alumn alumn)? conectionAlumn,
     TResult? Function(String idAlumno, Offset position)? addCirclePaint,
     TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
   }) {
     return changeVisibility?.call();
   }
@@ -483,12 +325,12 @@ class _$_ChangeVisibility implements _ChangeVisibility {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
     TResult Function(List<Alumn> alumn)? updateListAlumn,
     TResult Function()? changeVisibility,
     TResult Function(Alumn alumn)? conectionAlumn,
     TResult Function(String idAlumno, Offset position)? addCirclePaint,
     TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
     required TResult orElse(),
   }) {
     if (changeVisibility != null) {
@@ -500,12 +342,12 @@ class _$_ChangeVisibility implements _ChangeVisibility {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
     required TResult Function(_UpdateListAlumn value) updateListAlumn,
     required TResult Function(_ChangeVisibility value) changeVisibility,
     required TResult Function(_ConectionAlumn value) conectionAlumn,
     required TResult Function(_AddCirclePaint value) addCirclePaint,
     required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
   }) {
     return changeVisibility(this);
   }
@@ -513,12 +355,12 @@ class _$_ChangeVisibility implements _ChangeVisibility {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
     TResult? Function(_UpdateListAlumn value)? updateListAlumn,
     TResult? Function(_ChangeVisibility value)? changeVisibility,
     TResult? Function(_ConectionAlumn value)? conectionAlumn,
     TResult? Function(_AddCirclePaint value)? addCirclePaint,
     TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
   }) {
     return changeVisibility?.call(this);
   }
@@ -526,12 +368,12 @@ class _$_ChangeVisibility implements _ChangeVisibility {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
     TResult Function(_UpdateListAlumn value)? updateListAlumn,
     TResult Function(_ChangeVisibility value)? changeVisibility,
     TResult Function(_ConectionAlumn value)? conectionAlumn,
     TResult Function(_AddCirclePaint value)? addCirclePaint,
     TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (changeVisibility != null) {
@@ -619,12 +461,12 @@ class _$_ConectionAlumn implements _ConectionAlumn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
     required TResult Function(List<Alumn> alumn) updateListAlumn,
     required TResult Function() changeVisibility,
     required TResult Function(Alumn alumn) conectionAlumn,
     required TResult Function(String idAlumno, Offset position) addCirclePaint,
     required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
   }) {
     return conectionAlumn(alumn);
   }
@@ -632,12 +474,12 @@ class _$_ConectionAlumn implements _ConectionAlumn {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
     TResult? Function(List<Alumn> alumn)? updateListAlumn,
     TResult? Function()? changeVisibility,
     TResult? Function(Alumn alumn)? conectionAlumn,
     TResult? Function(String idAlumno, Offset position)? addCirclePaint,
     TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
   }) {
     return conectionAlumn?.call(alumn);
   }
@@ -645,12 +487,12 @@ class _$_ConectionAlumn implements _ConectionAlumn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
     TResult Function(List<Alumn> alumn)? updateListAlumn,
     TResult Function()? changeVisibility,
     TResult Function(Alumn alumn)? conectionAlumn,
     TResult Function(String idAlumno, Offset position)? addCirclePaint,
     TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
     required TResult orElse(),
   }) {
     if (conectionAlumn != null) {
@@ -662,12 +504,12 @@ class _$_ConectionAlumn implements _ConectionAlumn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
     required TResult Function(_UpdateListAlumn value) updateListAlumn,
     required TResult Function(_ChangeVisibility value) changeVisibility,
     required TResult Function(_ConectionAlumn value) conectionAlumn,
     required TResult Function(_AddCirclePaint value) addCirclePaint,
     required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
   }) {
     return conectionAlumn(this);
   }
@@ -675,12 +517,12 @@ class _$_ConectionAlumn implements _ConectionAlumn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
     TResult? Function(_UpdateListAlumn value)? updateListAlumn,
     TResult? Function(_ChangeVisibility value)? changeVisibility,
     TResult? Function(_ConectionAlumn value)? conectionAlumn,
     TResult? Function(_AddCirclePaint value)? addCirclePaint,
     TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
   }) {
     return conectionAlumn?.call(this);
   }
@@ -688,12 +530,12 @@ class _$_ConectionAlumn implements _ConectionAlumn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
     TResult Function(_UpdateListAlumn value)? updateListAlumn,
     TResult Function(_ChangeVisibility value)? changeVisibility,
     TResult Function(_ConectionAlumn value)? conectionAlumn,
     TResult Function(_AddCirclePaint value)? addCirclePaint,
     TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (conectionAlumn != null) {
@@ -786,12 +628,12 @@ class _$_AddCirclePaint implements _AddCirclePaint {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
     required TResult Function(List<Alumn> alumn) updateListAlumn,
     required TResult Function() changeVisibility,
     required TResult Function(Alumn alumn) conectionAlumn,
     required TResult Function(String idAlumno, Offset position) addCirclePaint,
     required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
   }) {
     return addCirclePaint(idAlumno, position);
   }
@@ -799,12 +641,12 @@ class _$_AddCirclePaint implements _AddCirclePaint {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
     TResult? Function(List<Alumn> alumn)? updateListAlumn,
     TResult? Function()? changeVisibility,
     TResult? Function(Alumn alumn)? conectionAlumn,
     TResult? Function(String idAlumno, Offset position)? addCirclePaint,
     TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
   }) {
     return addCirclePaint?.call(idAlumno, position);
   }
@@ -812,12 +654,12 @@ class _$_AddCirclePaint implements _AddCirclePaint {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
     TResult Function(List<Alumn> alumn)? updateListAlumn,
     TResult Function()? changeVisibility,
     TResult Function(Alumn alumn)? conectionAlumn,
     TResult Function(String idAlumno, Offset position)? addCirclePaint,
     TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
     required TResult orElse(),
   }) {
     if (addCirclePaint != null) {
@@ -829,12 +671,12 @@ class _$_AddCirclePaint implements _AddCirclePaint {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
     required TResult Function(_UpdateListAlumn value) updateListAlumn,
     required TResult Function(_ChangeVisibility value) changeVisibility,
     required TResult Function(_ConectionAlumn value) conectionAlumn,
     required TResult Function(_AddCirclePaint value) addCirclePaint,
     required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
   }) {
     return addCirclePaint(this);
   }
@@ -842,12 +684,12 @@ class _$_AddCirclePaint implements _AddCirclePaint {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
     TResult? Function(_UpdateListAlumn value)? updateListAlumn,
     TResult? Function(_ChangeVisibility value)? changeVisibility,
     TResult? Function(_ConectionAlumn value)? conectionAlumn,
     TResult? Function(_AddCirclePaint value)? addCirclePaint,
     TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
   }) {
     return addCirclePaint?.call(this);
   }
@@ -855,12 +697,12 @@ class _$_AddCirclePaint implements _AddCirclePaint {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
     TResult Function(_UpdateListAlumn value)? updateListAlumn,
     TResult Function(_ChangeVisibility value)? changeVisibility,
     TResult Function(_ConectionAlumn value)? conectionAlumn,
     TResult Function(_AddCirclePaint value)? addCirclePaint,
     TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (addCirclePaint != null) {
@@ -953,12 +795,12 @@ class _$_Call implements _Call {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic data) changeStatus,
     required TResult Function(List<Alumn> alumn) updateListAlumn,
     required TResult Function() changeVisibility,
     required TResult Function(Alumn alumn) conectionAlumn,
     required TResult Function(String idAlumno, Offset position) addCirclePaint,
     required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
   }) {
     return onCall(idAlumno, eventHome);
   }
@@ -966,12 +808,12 @@ class _$_Call implements _Call {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic data)? changeStatus,
     TResult? Function(List<Alumn> alumn)? updateListAlumn,
     TResult? Function()? changeVisibility,
     TResult? Function(Alumn alumn)? conectionAlumn,
     TResult? Function(String idAlumno, Offset position)? addCirclePaint,
     TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
   }) {
     return onCall?.call(idAlumno, eventHome);
   }
@@ -979,12 +821,12 @@ class _$_Call implements _Call {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic data)? changeStatus,
     TResult Function(List<Alumn> alumn)? updateListAlumn,
     TResult Function()? changeVisibility,
     TResult Function(Alumn alumn)? conectionAlumn,
     TResult Function(String idAlumno, Offset position)? addCirclePaint,
     TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
     required TResult orElse(),
   }) {
     if (onCall != null) {
@@ -996,12 +838,12 @@ class _$_Call implements _Call {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeStatus value) changeStatus,
     required TResult Function(_UpdateListAlumn value) updateListAlumn,
     required TResult Function(_ChangeVisibility value) changeVisibility,
     required TResult Function(_ConectionAlumn value) conectionAlumn,
     required TResult Function(_AddCirclePaint value) addCirclePaint,
     required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
   }) {
     return onCall(this);
   }
@@ -1009,12 +851,12 @@ class _$_Call implements _Call {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChangeStatus value)? changeStatus,
     TResult? Function(_UpdateListAlumn value)? updateListAlumn,
     TResult? Function(_ChangeVisibility value)? changeVisibility,
     TResult? Function(_ConectionAlumn value)? conectionAlumn,
     TResult? Function(_AddCirclePaint value)? addCirclePaint,
     TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
   }) {
     return onCall?.call(this);
   }
@@ -1022,12 +864,12 @@ class _$_Call implements _Call {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeStatus value)? changeStatus,
     TResult Function(_UpdateListAlumn value)? updateListAlumn,
     TResult Function(_ChangeVisibility value)? changeVisibility,
     TResult Function(_ConectionAlumn value)? conectionAlumn,
     TResult Function(_AddCirclePaint value)? addCirclePaint,
     TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
     required TResult orElse(),
   }) {
     if (onCall != null) {
@@ -1046,6 +888,163 @@ abstract class _Call implements SocketEvent {
   EventHome get eventHome;
   @JsonKey(ignore: true)
   _$$_CallCopyWith<_$_Call> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DisconnectCopyWith<$Res> {
+  factory _$$_DisconnectCopyWith(
+          _$_Disconnect value, $Res Function(_$_Disconnect) then) =
+      __$$_DisconnectCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String idAlumn});
+}
+
+/// @nodoc
+class __$$_DisconnectCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_Disconnect>
+    implements _$$_DisconnectCopyWith<$Res> {
+  __$$_DisconnectCopyWithImpl(
+      _$_Disconnect _value, $Res Function(_$_Disconnect) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idAlumn = null,
+  }) {
+    return _then(_$_Disconnect(
+      null == idAlumn
+          ? _value.idAlumn
+          : idAlumn // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Disconnect implements _Disconnect {
+  const _$_Disconnect(this.idAlumn);
+
+  @override
+  final String idAlumn;
+
+  @override
+  String toString() {
+    return 'SocketEvent.disconnect(idAlumn: $idAlumn)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Disconnect &&
+            (identical(other.idAlumn, idAlumn) || other.idAlumn == idAlumn));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idAlumn);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DisconnectCopyWith<_$_Disconnect> get copyWith =>
+      __$$_DisconnectCopyWithImpl<_$_Disconnect>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Alumn> alumn) updateListAlumn,
+    required TResult Function() changeVisibility,
+    required TResult Function(Alumn alumn) conectionAlumn,
+    required TResult Function(String idAlumno, Offset position) addCirclePaint,
+    required TResult Function(String idAlumno, EventHome eventHome) onCall,
+    required TResult Function(String idAlumn) disconnect,
+  }) {
+    return disconnect(idAlumn);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Alumn> alumn)? updateListAlumn,
+    TResult? Function()? changeVisibility,
+    TResult? Function(Alumn alumn)? conectionAlumn,
+    TResult? Function(String idAlumno, Offset position)? addCirclePaint,
+    TResult? Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult? Function(String idAlumn)? disconnect,
+  }) {
+    return disconnect?.call(idAlumn);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Alumn> alumn)? updateListAlumn,
+    TResult Function()? changeVisibility,
+    TResult Function(Alumn alumn)? conectionAlumn,
+    TResult Function(String idAlumno, Offset position)? addCirclePaint,
+    TResult Function(String idAlumno, EventHome eventHome)? onCall,
+    TResult Function(String idAlumn)? disconnect,
+    required TResult orElse(),
+  }) {
+    if (disconnect != null) {
+      return disconnect(idAlumn);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateListAlumn value) updateListAlumn,
+    required TResult Function(_ChangeVisibility value) changeVisibility,
+    required TResult Function(_ConectionAlumn value) conectionAlumn,
+    required TResult Function(_AddCirclePaint value) addCirclePaint,
+    required TResult Function(_Call value) onCall,
+    required TResult Function(_Disconnect value) disconnect,
+  }) {
+    return disconnect(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateListAlumn value)? updateListAlumn,
+    TResult? Function(_ChangeVisibility value)? changeVisibility,
+    TResult? Function(_ConectionAlumn value)? conectionAlumn,
+    TResult? Function(_AddCirclePaint value)? addCirclePaint,
+    TResult? Function(_Call value)? onCall,
+    TResult? Function(_Disconnect value)? disconnect,
+  }) {
+    return disconnect?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateListAlumn value)? updateListAlumn,
+    TResult Function(_ChangeVisibility value)? changeVisibility,
+    TResult Function(_ConectionAlumn value)? conectionAlumn,
+    TResult Function(_AddCirclePaint value)? addCirclePaint,
+    TResult Function(_Call value)? onCall,
+    TResult Function(_Disconnect value)? disconnect,
+    required TResult orElse(),
+  }) {
+    if (disconnect != null) {
+      return disconnect(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Disconnect implements SocketEvent {
+  const factory _Disconnect(final String idAlumn) = _$_Disconnect;
+
+  String get idAlumn;
+  @JsonKey(ignore: true)
+  _$$_DisconnectCopyWith<_$_Disconnect> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

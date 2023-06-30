@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:web_view/domain/data/alumn.dart';
+import 'package:web_view/data/models/alumn.dart';
 
 part 'alumn_response.freezed.dart';
 part 'alumn_response.g.dart';

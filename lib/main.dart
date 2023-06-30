@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:web_view/src/socket/socket.dart';
+import 'package:web_view/data/repositories/socket_repository.dart';
 import 'package:web_view/src/view/home/home_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final sockets = Sockets();
+  final sockets = SocketsRepository();
   runApp(MyApp(
     sockets: sockets,
   ));
@@ -14,7 +14,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key, required this.sockets}) : super(key: key);
 
-  final Sockets sockets;
+  final SocketsRepository sockets;
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:web_view/core/Palette.dart';
 import 'package:web_view/core/utils/utils.dart';
-import 'package:web_view/domain/data/alumn.dart';
-import 'package:web_view/domain/data/db_colores.dart';
+import 'package:web_view/data/models/alumn.dart';
+import 'package:web_view/data/models/db_colores.dart';
 import 'package:web_view/src/view/home/widget/alert.dart';
 import 'package:web_view/src/view/home/widget/circle_animation.dart';
 import 'package:web_view/src/view/web/web_view.dart';
@@ -20,7 +20,6 @@ class _HomeViewState extends State<HomeView> {
   int selectIndex = -1;
   late FToast fToast;
   TextEditingController controller = TextEditingController();
-  TextEditingController controllerCanal = TextEditingController();
 
   @override
   void initState() {
@@ -95,42 +94,6 @@ class _HomeViewState extends State<HomeView> {
                 height: 16,
               ),
               Text(
-                'Ingresar el canal',
-                style: TextStyle(color: Palette.textBlack),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Palette.backgroundInput,
-                    borderRadius: BorderRadius.circular(8)),
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: controllerCanal,
-                        inputFormatters: [LengthLimitingTextInputFormatter(5)],
-                        style: TextStyle(
-                          color: Palette.textWhite,
-                        ),
-                        decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Colocar el codigo kahoot'),
-                      ),
-                    ),
-                    Icon(
-                      Icons.connect_without_contact,
-                      color: Palette.textBlack,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
                 'Selecionar color',
                 style: TextStyle(color: Palette.textBlack),
               ),
@@ -161,9 +124,7 @@ class _HomeViewState extends State<HomeView> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (selectIndex == -1 &&
-                      controller.text.isEmpty &&
-                      controllerCanal.text.isEmpty) {
+                  if (selectIndex == -1 && controller.text.isEmpty) {
                     fToast.showToast(
                       child: const Alert(message: 'Campos vacios mano'),
                       gravity: ToastGravity.BOTTOM,
@@ -190,15 +151,6 @@ class _HomeViewState extends State<HomeView> {
                     return;
                   }
 
-                  if (controller.text.isEmpty) {
-                    fToast.showToast(
-                      child: const Alert(message: 'Coloca el canal GIL!'),
-                      gravity: ToastGravity.BOTTOM,
-                      toastDuration: const Duration(seconds: 2),
-                    );
-                    return;
-                  }
-
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -206,7 +158,7 @@ class _HomeViewState extends State<HomeView> {
                         alumno: Alumn(
                           id: generarIdUnico(controller.text),
                           nombre: controller.text,
-                          canalConection: controllerCanal.text,
+                          canalConection: "",
                           idColor: DbColores.coloresMap.values
                               .toList()[selectIndex]
                               .id,

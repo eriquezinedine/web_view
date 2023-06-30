@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:web_view/core/enum/enum.dart';
 import 'package:web_view/core/utils/utils.dart';
-import 'package:web_view/domain/data/alumn_event.dart';
-import 'package:web_view/domain/data/circle.dart';
-import 'package:web_view/src/socket/socket.dart';
+import 'package:web_view/data/models/alumn_event.dart';
+import 'package:web_view/data/models/circle.dart';
+import 'package:web_view/domain/repository/i_socket_repository.dart';
 
 part 'custom_paint_bloc.freezed.dart';
 part 'custom_paint_event.dart';
 part 'custom_paint_state.dart';
 
 class CustomPaintBloc extends Bloc<CustomPaintEvent, CustomPaintState> {
-  CustomPaintBloc({required this.idAlumno, required Sockets sockets})
+  CustomPaintBloc({required this.idAlumno, required ISocketRepository sockets})
       : _sockets = sockets,
         super(CustomPaintState(idAlumno: idAlumno)) {
     on<_SetCircles>(_onSetCircles);
@@ -22,7 +22,7 @@ class CustomPaintBloc extends Bloc<CustomPaintEvent, CustomPaintState> {
   }
 
   final String idAlumno;
-  final Sockets _sockets;
+  final ISocketRepository _sockets;
 
   void init() {
     _sockets.on('circles', (data) {

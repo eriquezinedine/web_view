@@ -24,6 +24,7 @@ mixin _$Alumn {
   String get nombre => throw _privateConstructorUsedError;
   String get idColor => throw _privateConstructorUsedError;
   String get canalConection => throw _privateConstructorUsedError;
+  List<Cordenada> get offsets => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,12 @@ abstract class $AlumnCopyWith<$Res> {
   factory $AlumnCopyWith(Alumn value, $Res Function(Alumn) then) =
       _$AlumnCopyWithImpl<$Res, Alumn>;
   @useResult
-  $Res call({String id, String nombre, String idColor, String canalConection});
+  $Res call(
+      {String id,
+      String nombre,
+      String idColor,
+      String canalConection,
+      List<Cordenada> offsets});
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$AlumnCopyWithImpl<$Res, $Val extends Alumn>
     Object? nombre = null,
     Object? idColor = null,
     Object? canalConection = null,
+    Object? offsets = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -73,6 +80,10 @@ class _$AlumnCopyWithImpl<$Res, $Val extends Alumn>
           ? _value.canalConection
           : canalConection // ignore: cast_nullable_to_non_nullable
               as String,
+      offsets: null == offsets
+          ? _value.offsets
+          : offsets // ignore: cast_nullable_to_non_nullable
+              as List<Cordenada>,
     ) as $Val);
   }
 }
@@ -83,7 +94,12 @@ abstract class _$$_AlumnCopyWith<$Res> implements $AlumnCopyWith<$Res> {
       __$$_AlumnCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String nombre, String idColor, String canalConection});
+  $Res call(
+      {String id,
+      String nombre,
+      String idColor,
+      String canalConection,
+      List<Cordenada> offsets});
 }
 
 /// @nodoc
@@ -99,6 +115,7 @@ class __$$_AlumnCopyWithImpl<$Res> extends _$AlumnCopyWithImpl<$Res, _$_Alumn>
     Object? nombre = null,
     Object? idColor = null,
     Object? canalConection = null,
+    Object? offsets = null,
   }) {
     return _then(_$_Alumn(
       id: null == id
@@ -117,6 +134,10 @@ class __$$_AlumnCopyWithImpl<$Res> extends _$AlumnCopyWithImpl<$Res, _$_Alumn>
           ? _value.canalConection
           : canalConection // ignore: cast_nullable_to_non_nullable
               as String,
+      offsets: null == offsets
+          ? _value._offsets
+          : offsets // ignore: cast_nullable_to_non_nullable
+              as List<Cordenada>,
     ));
   }
 }
@@ -129,7 +150,9 @@ class _$_Alumn implements _Alumn {
       {required this.id,
       required this.nombre,
       required this.idColor,
-      required this.canalConection});
+      required this.canalConection,
+      final List<Cordenada> offsets = const []})
+      : _offsets = offsets;
 
   factory _$_Alumn.fromJson(Map<String, dynamic> json) =>
       _$$_AlumnFromJson(json);
@@ -142,10 +165,18 @@ class _$_Alumn implements _Alumn {
   final String idColor;
   @override
   final String canalConection;
+  final List<Cordenada> _offsets;
+  @override
+  @JsonKey()
+  List<Cordenada> get offsets {
+    if (_offsets is EqualUnmodifiableListView) return _offsets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_offsets);
+  }
 
   @override
   String toString() {
-    return 'Alumn(id: $id, nombre: $nombre, idColor: $idColor, canalConection: $canalConection)';
+    return 'Alumn(id: $id, nombre: $nombre, idColor: $idColor, canalConection: $canalConection, offsets: $offsets)';
   }
 
   @override
@@ -157,13 +188,14 @@ class _$_Alumn implements _Alumn {
             (identical(other.nombre, nombre) || other.nombre == nombre) &&
             (identical(other.idColor, idColor) || other.idColor == idColor) &&
             (identical(other.canalConection, canalConection) ||
-                other.canalConection == canalConection));
+                other.canalConection == canalConection) &&
+            const DeepCollectionEquality().equals(other._offsets, _offsets));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, nombre, idColor, canalConection);
+  int get hashCode => Object.hash(runtimeType, id, nombre, idColor,
+      canalConection, const DeepCollectionEquality().hash(_offsets));
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +216,8 @@ abstract class _Alumn implements Alumn {
       {required final String id,
       required final String nombre,
       required final String idColor,
-      required final String canalConection}) = _$_Alumn;
+      required final String canalConection,
+      final List<Cordenada> offsets}) = _$_Alumn;
 
   factory _Alumn.fromJson(Map<String, dynamic> json) = _$_Alumn.fromJson;
 
@@ -196,6 +229,8 @@ abstract class _Alumn implements Alumn {
   String get idColor;
   @override
   String get canalConection;
+  @override
+  List<Cordenada> get offsets;
   @override
   @JsonKey(ignore: true)
   _$$_AlumnCopyWith<_$_Alumn> get copyWith =>

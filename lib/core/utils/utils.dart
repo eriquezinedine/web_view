@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
-import 'package:web_view/domain/data/cordenada.dart';
+import 'package:web_view/data/models/cordenada.dart';
 
 String generarIdUnico(String name) {
   DateTime now = DateTime.now();

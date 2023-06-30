@@ -215,6 +215,8 @@ abstract class _$$_ModifyCirclesCopyWith<$Res> {
       __$$_ModifyCirclesCopyWithImpl<$Res>;
   @useResult
   $Res call({AlumnEvent alumnEvent});
+
+  $AlumnEventCopyWith<$Res> get alumnEvent;
 }
 
 /// @nodoc
@@ -228,14 +230,22 @@ class __$$_ModifyCirclesCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? alumnEvent = freezed,
+    Object? alumnEvent = null,
   }) {
     return _then(_$_ModifyCircles(
-      freezed == alumnEvent
+      null == alumnEvent
           ? _value.alumnEvent
           : alumnEvent // ignore: cast_nullable_to_non_nullable
               as AlumnEvent,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AlumnEventCopyWith<$Res> get alumnEvent {
+    return $AlumnEventCopyWith<$Res>(_value.alumnEvent, (value) {
+      return _then(_value.copyWith(alumnEvent: value));
+    });
   }
 }
 
@@ -257,13 +267,12 @@ class _$_ModifyCircles implements _ModifyCircles {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ModifyCircles &&
-            const DeepCollectionEquality()
-                .equals(other.alumnEvent, alumnEvent));
+            (identical(other.alumnEvent, alumnEvent) ||
+                other.alumnEvent == alumnEvent));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(alumnEvent));
+  int get hashCode => Object.hash(runtimeType, alumnEvent);
 
   @JsonKey(ignore: true)
   @override

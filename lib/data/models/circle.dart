@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:web_view/domain/data/cordenada.dart';
+import 'package:web_view/data/models/cordenada.dart';
 
 part 'circle.freezed.dart';
 part 'circle.g.dart';

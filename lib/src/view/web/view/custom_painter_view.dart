@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_view/src/socket/bloc/custom_paint_bloc/custom_paint_bloc.dart';
-import 'package:web_view/src/view/web/domain/painter.dart';
+import 'package:web_view/src/view/web/controller/painter.dart';
 
 class CustomPainterView extends StatelessWidget {
   const CustomPainterView({
